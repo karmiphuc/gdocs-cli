@@ -1,0 +1,25 @@
+# gitleaks config — local extension for OAuth-helper repos
+# Generic gate is in .github/workflows/scan-secrets.yml; this file tightens exceptions.
+
+[extend]
+useDefault = true
+
+# Allow OAuth scaffolding files: they're meant to reference client_secret/refresh_token as strings
+[allowlist]
+paths = [
+  '''gdoc_tool\.py''',
+  '''setup_oauth\.py''',
+  '''README\.md''',
+  '''AGENTS\.md'''
+]
+
+# Allow variable references (not actual secrets)
+regexes = [
+  '''creds_data\[["']client_secret["']\]''',
+  '''creds_data\[["']refresh_token["']\]''',
+  '''client_secret\.json''',
+  '''find_client_secret''',
+  '''client_secret=creds_data'''
+]
+
+description = "Allow OAuth helper scaffolding in gdocs-cli — these reference variables, not real secrets."
