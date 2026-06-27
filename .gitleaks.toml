@@ -3,10 +3,10 @@
 useDefault = true
 [allowlist]
 paths = [
-  '''gdoc_tool\.py''',
-  '''setup_oauth\.py''',
-  '''README\.md''',
-  '''AGENTS\.md'''
+  '''gdoc_tool\.py$''',
+  '''setup_oauth\.py$''',
+  '''README\.md$''',
+  '''AGENTS\.md$'''
 ]
 regexes = [
   '''creds_data\[["']client_secret["']\]''',
